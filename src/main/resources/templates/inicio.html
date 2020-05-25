@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Agregar contribuyente</title>
+</head>
+<body>
+<form th:action="@{/guardar}" th:object="${contribuyente}" method="post">
+    <h1>Agregar contribuyente</h1>
+    <label>Importancia: </label>
+    <select th:field="*{importancia.codigoImportancia}">
+        <option th:each="item : ${importanciaList}"
+                th:value="${item.codigoImportancia}"
+                th:selected="${item.codigoImportancia == 1}"
+                th:text="${item.nombre}" >
+    </select>
+    <span th:errors="*{importancia}" style="color: red"></span><br><br>
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}">
+    <span th:errors="*{nombre}" style="color: red"></span><br>
+    <br>
+    <label>Apellido:</label>
+    <input type="text" th:field="*{apellido}">
+    <span th:errors="*{apellido}" style="color: red"></span><br>
+    <br>
+    <label>NIT:</label>
+    <input type="text" th:field="*{nit}">
+    <span th:errors="*{nit}" style="color: red"></span><br>
+    <br>
+    <input type="submit" value="Guardar">
+</form>
+<br>
+<form th:action="@{/verContribuyente}">
+    <input type="submit" value="Ver contribuyentes">
+</form>
+
+</body>
+</html>

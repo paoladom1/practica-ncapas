@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Importancia</title>
+</head>
+<body>
+<table>
+    <h1>Contribuyente <label th:text="${contribuyente.nombre}"></label> guardado con exito</h1>
+    <form th:action="@{/contribuyente}">
+        <input type="submit" value="Regresar">
+    </form>
+</table>
+</body>
+</html>
